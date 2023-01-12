@@ -1,0 +1,37 @@
+npm init vite@latest
+
+citas-react
+
+React - js
+
+Javascript
+
+cd citas-react
+
+npm install
+
+npm run dev
+///////////////////////////////
+antes del return
+const sumar = ()=>{
+    const numero =5;
+    if (numero> 10){
+      console.log("El numero es mayor a 10");
+    }else{
+      console.log("El número es menor a 10");
+    }
+    
+  }
+  sumar();
+/////////////////////////////////
+const edad = 18;
+  return (
+    <div className="App">
+      <h1>Hola Mundo</h1>
+      {edad >= 18 ? 'Eres mayor de edad': 'No es mayor de edad'}
+    </div>
+  )
+}
+
+//////////////////////////////////
+<h1>{'Hola Mundo'.toUpperCase()}</h1>

@@ -35,3 +35,34 @@ const edad = 18;
 
 //////////////////////////////////
 <h1>{'Hola Mundo'.toUpperCase()}</h1>
+
+////////////////////
+Crear componente listado pacientes
+
+npm i -D tailwindcss postcss autoprefixer
+
+npx tailwindcss init -p
+
+tailwind intellisense
+
+css peek
+
+index.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+tailwind config
+content: ["./index.html","./src/**/*.jsx"]
+
+en index.html
+<body class="bg-gray-100 h-screen">
+
+en app.jsx
+<div className="container mx-auto mt-20">
+
+en el header.jsx
+<h1 className="font-black text-5xl text-center md:w-2/3 mx-auto" >
+                Seguimiento Pacientes {''}
+                <span className="text-indigo-600">Veterinaria</span>
+            </h1>

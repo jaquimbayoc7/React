@@ -1,4 +1,13 @@
+import { useState, useEffect } from "react";
+
 const Formulario = () => {
+  const [nombre, setNombre] = useState('');
+
+  //setNombre('Hook')
+
+  //console.log(nombre);
+
+
   return (
     <div className="md:w-1/2 lg:w-2/5">
         <h2 className="font-black text-3xl text-center">Seguimiento Pacientes</h2>
@@ -14,7 +23,7 @@ const Formulario = () => {
             Nombre Mascota:
           </label>
           <input id="mascota" className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" 
-          type="text" placeholder="Nombre de la mascota"/>
+          type="text" placeholder="Nombre de la mascota" value={nombre} onChange={(e)=> console.log(e.target.value)}/>
           
         </div>
         <div className="mb-5">

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Error from "./Error";
 
-const Formulario = ({ pacientes, setPacientes }) => {
+const Formulario = ({ pacientes, setPacientes, paciente }) => {
   const [nombre, setNombre] = useState('');
   const [propietario, setPropietario] = useState('');
   const [email, setEmail] = useState('');
@@ -10,6 +10,20 @@ const Formulario = ({ pacientes, setPacientes }) => {
 
   //Manejo de errores
   const [error, setError] = useState(false);
+
+  //revision paciente actual
+  
+  useEffect(()=>{
+    console.log(paciente);
+  }, [paciente])
+
+  //Generar ID
+  const generarID = () =>{
+    const random = Math.random().toString(36).substr(2);
+    const fecha = Date.now().toString(36);
+
+    return random + fecha
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +40,7 @@ const Formulario = ({ pacientes, setPacientes }) => {
     //Objeto de pacientes
 
     const objetoPaciente = {
-      nombre, propietario, email, fingreso, sintomas
+      nombre, propietario, email, fingreso, sintomas, id:generarID()
     }
 
     //console.log(objetoPaciente);

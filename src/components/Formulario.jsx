@@ -14,7 +14,13 @@ const Formulario = ({ pacientes, setPacientes, paciente }) => {
   //revision paciente actual
   
   useEffect(()=>{
-    console.log(paciente);
+    if(Object.keys(paciente).length > 0){
+      setNombre(paciente.nombre)
+      setPropietario(paciente.propietario)
+      setEmail(paciente.email)
+      setFingreso(paciente.fingreso)
+      setSintomas(paciente.sintomas)
+    }
   }, [paciente])
 
   //Generar ID
@@ -40,11 +46,24 @@ const Formulario = ({ pacientes, setPacientes, paciente }) => {
     //Objeto de pacientes
 
     const objetoPaciente = {
-      nombre, propietario, email, fingreso, sintomas, id:generarID()
+      nombre, propietario, email, fingreso, sintomas
     }
 
-    //console.log(objetoPaciente);
-    setPacientes([...pacientes, objetoPaciente]);
+    //Actualizar
+    if(paciente.id){
+      //console.log('Editando')
+      objetoPaciente.id = paciente.id
+      //console.log(objetoPaciente)
+      //console.log(paciente)
+      const pacientesActualizados = pacientes.map(pacienteState=> pacienteState.id=== paciente.id ? objetoPaciente:pacienteState )
+
+      setPacientes(pacientesActualizados)
+    }else{
+      //console.log('Nuevo paciente')
+      //console.log(objetoPaciente);
+      objetoPaciente.id= generarID();
+      setPacientes([...pacientes, objetoPaciente]);
+    }
 
     //reinicio form
     setNombre('');
@@ -116,7 +135,7 @@ const Formulario = ({ pacientes, setPacientes, paciente }) => {
 
         <input type="submit" className="bg-indigo-600 w-full p-3
          text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors"
-          value="Agregar Paciente" />
+          value={paciente.id ? "Editar Paciente":"Agregar Paciente"} />
 
       </form>
 

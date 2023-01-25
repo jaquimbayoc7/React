@@ -1,7 +1,7 @@
 //import {useEffect} from "react"
 import Pacientes from "./Pacientes"
 
-function ListadoPacientes({ pacientes, setPaciente }) {
+function ListadoPacientes({ pacientes, setPaciente, eliminarPaciente }) {
 
   /*useEffect(()=>{
     if(pacientes.length > 0){
@@ -26,6 +26,7 @@ function ListadoPacientes({ pacientes, setPaciente }) {
               //const random = Math.random().toString(36).substr(2)
               paciente={paciente}
               setPaciente = {setPaciente}
+              eliminarPaciente={eliminarPaciente}
             />
           )}
         </>
